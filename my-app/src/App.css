@@ -1,0 +1,51 @@
+body {
+  background-color:#BDB76B;
+}
+
+.App {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.counter-value{
+  font-size: 150px;
+  color: #F0E68C;
+}
+.max-counterValue{
+  color: red;
+  font-size: 150px;
+  font-weight: bold;
+}
+.counter-block {
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 500px;
+  height: 400px;
+  background-color: #778899;
+  border-radius: 15px;
+  border: 5px solid #F0E68C;
+}
+
+
+.counter-buttons {
+  border: 5px solid #F0E68C;
+  width: 450px;
+  height: 140px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.counter-buttons  button {
+  font-size: 32px;
+  font-weight: 700;
+  background-color: #9f961a;
+  border-radius: 10px;
+  outline: #F0E68C;
+}
+
+
