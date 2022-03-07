@@ -1,19 +1,22 @@
-import React from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import Button from "./Button";
 import s from './Settings.module.css'
 
-type SettingsPropsType = {
-    counter: number
-}
 
-const Settings: React.FC<SettingsPropsType> = (counter) => {
+const Settings = () => {
+    const [value, setValue] = useState('')
+
+    const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+        setValue(e.currentTarget.value)
+    }
+
     const setValueCounter = () => {
-        localStorage.setItem('current value', JSON.stringify(counter))
+        localStorage.setItem('current value', JSON.stringify(value))
     }
 
     return (
         <div className={s.settingsBlock}>
-            <div className={s.settingsText}>Max value:<input type="number"/></div>
+            <div className={s.settingsText}>Max value:<input onChange={onChangeInput} type="number"/></div>
             <div className={s.settingsText}>Start value:<input type="number"/></div>
             <div className={s.settingsButtons}>
                 <Button name={'set'} callback={setValueCounter}/>

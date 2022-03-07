@@ -21,7 +21,7 @@ function App() {
     return (
         <div className="App">
             <div className={'settings'}>
-                <Settings counter={counter}/>
+                <Settings/>
             </div>
             <div className={'counter-block'}>
                 <DisplayCounter counter={counter} minValue={minValue} maxValue={maxValue}/>
