@@ -8,14 +8,15 @@ body {
   align-items: center;
 }
 .counter-value{
-  font-size: 150px;
+  font-size: 100px;
   color: #F0E68C;
 }
 .max-counterValue{
   color: red;
-  font-size: 150px;
+  font-size: 100px;
   font-weight: bold;
 }
+
 .counter-block {
   margin: 100px auto;
   display: flex;
