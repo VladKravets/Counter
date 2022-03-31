@@ -1,9 +1,12 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import Button from "./Button";
-import s from './Settings.module.css'
+import s from '../Settings.module.css'
 
+type SettingsPropsType={
+    // minValue:string
+}
 
-const Settings = () => {
+const Settings:React.FC<SettingsPropsType> = (props) => {
     const [value, setValue] = useState('')
 
     const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -11,7 +14,8 @@ const Settings = () => {
     }
 
     const setValueCounter = () => {
-        localStorage.setItem('current value', JSON.stringify(value))
+            localStorage.setItem('currentValue', JSON.stringify(value))
+        // props.minValue=value
     }
 
     return (
