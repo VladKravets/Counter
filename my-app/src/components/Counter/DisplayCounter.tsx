@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import Button from "../Button/Button";
 
 type propsType = {
     counter: number
@@ -20,13 +21,11 @@ const Counter: React.FC<propsType> = (
                 <h2 className={`display ${stopCount ? 'redText' : ''}`}>{counter}</h2>
             </div>
             <div className={'counterButtonsWrap'}>
-                <button className={'btn'}
-                        onClick={incrementCounter}
-                        disabled={stopCount}>inc
-                </button>
-                <button className={'btn'}
-                        onClick={resetCounter}>reset
-                </button>
+                <Button name={'inc'}
+                        callback={incrementCounter}
+                        disabled={stopCount}/>
+                <Button name={'reset'}
+                        callback={resetCounter}/>
             </div>
 
         </div>

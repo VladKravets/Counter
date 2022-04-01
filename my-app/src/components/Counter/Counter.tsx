@@ -1,17 +1,13 @@
 import DisplayCounter from "./DisplayCounter";
-
-
-
 import React, {useEffect, useState} from 'react';
-import Counter from "./Counter";
-import Settings from "./Settings";
+import Settings from "../Settings/Settings";
 
 export type settingsType = {
     START_VALUE: number
     MAX_VALUE: number
 }
 
-const CounterWrap = () => {
+const Counter = () => {
     const [settings, setSettings] = useState({
         START_VALUE: 0,
         MAX_VALUE: 5
@@ -61,12 +57,6 @@ const CounterWrap = () => {
         }
     }, [])
 
-    // useEffect(() => {
-    //     // setCounter(settings.START_VALUE)
-    //     localStorage.setItem('settings', JSON.stringify(settings))
-    // }, [settings])
-
-
     return (
         <div className={'counterAppWrap'}>
             <DisplayCounter
@@ -82,4 +72,4 @@ const CounterWrap = () => {
     );
 };
 
-export default CounterWrap;
+export default Counter;
