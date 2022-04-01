@@ -8,3 +8,6 @@
     background: rgb(203,189,66);
     background: linear-gradient(291deg, rgba(203,189,66,1) 48%, rgba(233,233,148,0.981127485173757) 100%);
 }
+.button:disabled{
+    opacity: 0.4;
+}
