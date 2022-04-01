@@ -47,36 +47,19 @@ body {
   margin-top: 10px;
   padding: 5px;
 }
-
-.btn {
-  background-color: #ab9115;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  padding:  10px 30px;
-  margin: 10px;
-  color: #024141;
-  font-weight: bold;
-}
-
 .btn:disabled {
 opacity: 0.1;
 }
 
-.btn:active {
-  background-color: #504a27;
-}
 .inputValue {
-  width: 50px;
-  background-color: #c5be80;
+  width: 90px;
+  background-color: #afab84;
   color: #024141;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
-  outline: none;
-  border: none;
   border-radius:5px;
-  margin: 5px;
+  margin: 10px 15px;
 }
 
 .errorField{
