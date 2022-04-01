@@ -1,29 +1,57 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
-import Button from "./Button";
-import s from '../Settings.module.css'
+import React, {ChangeEvent, Dispatch, SetStateAction, useEffect, useState} from "react";
+import {settingsType} from "./Counter";
 
-type SettingsPropsType={
-    // minValue:string
+type propsType = {
+    settings: settingsType
+    setSettings: Dispatch<SetStateAction<settingsType>>
+    error: string | null
+    saveSettings: (startValue: number, maxValue: number) => void
 }
 
-const Settings:React.FC<SettingsPropsType> = (props) => {
-    const [value, setValue] = useState('')
+const Settings: React.FC<propsType> = (
+    {
+        setSettings,
+        settings,
+        saveSettings,
+        error
+    }) => {
 
-    const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue(e.currentTarget.value)
+    const onStartValueInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSettings({...settings, START_VALUE: +e.currentTarget.value})
     }
+    const onMaxValueInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSettings({...settings, MAX_VALUE: +e.currentTarget.value})
 
-    const setValueCounter = () => {
-            localStorage.setItem('currentValue', JSON.stringify(value))
-        // props.minValue=value
+    }
+    const setBtnHandler = () => {
+        saveSettings(settings.START_VALUE, settings.MAX_VALUE)
     }
 
     return (
-        <div className={s.settingsBlock}>
-            <div className={s.settingsText}>Max value:<input onChange={onChangeInput} type="number"/></div>
-            <div className={s.settingsText}>Start value:<input type="number"/></div>
-            <div className={s.settingsButtons}>
-                <Button name={'set'} callback={setValueCounter}/>
+        <div className={'Wrap'}>
+            <div className={'inputSettings displayWrap'}>
+                <div>
+                    <span>Start Value</span>
+                    <input className={'inputValue'}
+                           value={settings.START_VALUE.toString()}
+                           onChange={onStartValueInputChange}
+                           type="number"/>
+                </div>
+                <div>
+                    <span>Max Value</span>
+                    <input className={'inputValue'}
+                           value={settings.MAX_VALUE.toString()}
+                           onChange={onMaxValueInputChange}
+                           type="number"/>
+                </div>
+            </div>
+            <div className={'settingsBtnWrap displayWrap'}>
+                <button className={'btn'}
+                        onClick={setBtnHandler}>set
+                </button>
+            </div>
+            <div className={"errorField"}>
+                {error}
             </div>
         </div>
     );

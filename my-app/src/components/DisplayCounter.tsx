@@ -1,15 +1,36 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-type DisplayPropsType = {
+type propsType = {
     counter: number
-    minValue: number
-    maxValue: number
+    incrementCounter: () => void
+    resetCounter: () => void
+    stopCount: boolean
 }
+const Counter: React.FC<propsType> = (
+    {
+        counter,
+        incrementCounter,
+        resetCounter,
+        stopCount
+    }) => {
 
-const DisplayCounter: React.FC<DisplayPropsType> = (props) => {
     return (
-        <div className={props.counter === props.maxValue ? 'max-counterValue' : 'counter-value'}>{props.counter}</div>
+        <div className={'Wrap'}>
+            <div className={'displayWrap'}>
+                <h2 className={`display ${stopCount ? 'redText' : ''}`}>{counter}</h2>
+            </div>
+            <div className={'counterButtonsWrap'}>
+                <button className={'btn'}
+                        onClick={incrementCounter}
+                        disabled={stopCount}>inc
+                </button>
+                <button className={'btn'}
+                        onClick={resetCounter}>reset
+                </button>
+            </div>
+
+        </div>
     );
 };
 
-export default DisplayCounter;
+export default Counter;

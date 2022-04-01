@@ -1,55 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 body {
-  background-color:#BDB76B;
+  margin: 0;
+  font-family: 'Fjalla One', sans-serif;
+  background-color: #a2cbd5;
 }
 
 .App {
+  text-align: center;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+
 }
-.settings{
-  padding-left: 100px;
-}
-.counter-value{
-  font-size: 100px;
-  color: #F0E68C;
-}
-.max-counterValue{
+
+.redText {
   color: red;
-  font-size: 100px;
   font-weight: bold;
+  font-size: 50px;
 }
 
-.counter-block {
-  margin: 100px auto;
+.counterAppWrap {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  width: 500px;
-  height: 400px;
-  background-color: #778899;
-  border-radius: 15px;
-  border: 5px solid #F0E68C;
+  /*flex-direction: row;*/
+  justify-content: center;
+  /*align-items: center;*/
+  flex-wrap: wrap;
+  color: #504a27;
 }
 
-
-.counter-buttons {
-  border: 5px solid #F0E68C;
-  width: 450px;
-  height: 140px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.counter-buttons  button {
-  font-size: 32px;
-  font-weight: 700;
-  background-color: #9f961a;
+.Wrap {
+  width: 250px;
+  border: 1px solid #998d4b;
   border-radius: 10px;
-  outline: #F0E68C;
+  padding: 20px;
+  margin: 10px;
 }
 
+.displayWrap {
+  border: 1px solid #998d4b;
+  border-radius: 10px;
+}
 
+.counterButtonsWrap {
+  border: 1px solid #998d4b;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.btn {
+  background-color: #998d4b;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px;
+  color: bisque;
+}
+
+.btn:disabled {
+  background-color: gray;
+}
+
+.btn:active {
+  background-color: #504a27;
+}
+.inputValue {
+  width: 50px;
+  background-color: #b2e0ea;
+  color: #998d4b;
+  outline: none;
+  border: none;
+  padding: 13px;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.errorField{
+  height: 22px;
+  color: red;
+}
+
+.inputSettings{
+  margin-bottom: 10px;
+}
