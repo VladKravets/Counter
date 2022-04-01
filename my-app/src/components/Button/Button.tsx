@@ -1,5 +1,5 @@
 import React from "react";
-
+import s from './Button.module.css'
 
 export type ButtonPropsType = {
     name: string
@@ -12,6 +12,6 @@ const Button: React.FC<ButtonPropsType> = ({callback,disabled,name}) => {
         callback()
     }
 
-    return <button disabled={disabled} onClick={onClickHandler}>{name}</button>
+    return <button className={s.button} disabled={disabled} onClick={onClickHandler}>{name}</button>
 };
 export default Button;

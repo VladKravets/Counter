@@ -1,65 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 body {
-  margin: 0;
+  margin: 0 auto;
   font-family: 'Fjalla One', sans-serif;
-  background-color: #a2cbd5;
 }
 
 .App {
+  background: rgb(197,190,128);
+  background: radial-gradient(circle, rgba(197,190,128,1) 0%, rgba(148,187,233,1) 100%);
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 
 }
 
 .redText {
-  color: red;
+  color: #fa0101;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 .counterAppWrap {
   display: flex;
-  /*flex-direction: row;*/
   justify-content: center;
-  /*align-items: center;*/
   flex-wrap: wrap;
-  color: #504a27;
+  color: #0c5959;
+  width: 400px;
 }
 
 .Wrap {
   width: 250px;
-  border: 1px solid #998d4b;
+  border: 1px solid #024141;
   border-radius: 10px;
-  padding: 20px;
-  margin: 10px;
+  padding: 60px;
+  margin: 20px;
+
 }
 
 .displayWrap {
-  border: 1px solid #998d4b;
-  border-radius: 10px;
+  font-size: 20px;
 }
 
 .counterButtonsWrap {
-  border: 1px solid #998d4b;
   border-radius: 10px;
   margin-top: 10px;
   padding: 5px;
 }
 
 .btn {
-  background-color: #998d4b;
+  background-color: #ab9115;
   outline: none;
   border: none;
   border-radius: 5px;
-  padding: 15px;
+  padding:  10px 30px;
   margin: 10px;
-  color: bisque;
+  color: #024141;
+  font-weight: bold;
 }
 
 .btn:disabled {
-  background-color: gray;
+opacity: 0.1;
 }
 
 .btn:active {
@@ -67,12 +68,14 @@ body {
 }
 .inputValue {
   width: 50px;
-  background-color: #b2e0ea;
-  color: #998d4b;
+  background-color: #c5be80;
+  color: #024141;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
   outline: none;
   border: none;
-  padding: 13px;
-  border-radius: 8px;
+  border-radius:5px;
   margin: 5px;
 }
 
