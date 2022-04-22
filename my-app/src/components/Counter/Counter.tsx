@@ -1,75 +1,49 @@
-import DisplayCounter from "./DisplayCounter";
-import React, {useEffect, useState} from 'react';
-import Settings from "../Settings/Settings";
+import React from 'react';
+import './Counter.css';
 
-export type settingsType = {
-    START_VALUE: number
-    MAX_VALUE: number
+type CounterPropsType = {
+    counterValue: number
+    minValue: number
+    maxValue: number
+    increment: () => void
+    reset: () => void
+    disableBtnReset: boolean
+    disableBtnInc: boolean
+    message: string
+    error: boolean
+    errorMessage: boolean
 }
 
-const Counter = () => {
-    const [settings, setSettings] = useState({
-        START_VALUE: 0,
-        MAX_VALUE: 5
-    } as settingsType)
-
-
-    const [counter, setCounter] = useState(settings.START_VALUE)
-    const incrementCounter = () => {
-        counter < settings.MAX_VALUE &&
-        setCounter(counter + 1)
-        localStorage.setItem('counter', (counter + 1).toString())
+const Counter = (props: CounterPropsType) => {
+    const increment = () => {
+        props.increment()
+    }
+    const reset = () => {
+        props.reset()
     }
 
-    const [error, setError] = useState(null as null | string)
-    const saveSettings = (startValue: number, maxValue: number) => {
-        if (startValue < maxValue) {
-            setError(null)
-            setSettings({
-                START_VALUE: startValue,
-                MAX_VALUE: maxValue
-            })
-            setCounter(settings.START_VALUE)
-            localStorage.setItem('settings', JSON.stringify({
-                START_VALUE: startValue,
-                MAX_VALUE: maxValue
-            }))
-        } else {
-            setError('incorrect start or max Value')
-        }
-
-    }
-
-    const resetCounter = () => {
-        setCounter(settings.START_VALUE)
-        localStorage.setItem('counter', settings.START_VALUE.toString())
-    }
-
-    useEffect(() => {
-        const LS = localStorage.getItem('settings')
-        if (LS) {
-            // const parsedLS = JSON.parse(LS)
-            setSettings(JSON.parse(LS))
-        }
-        const LScounter = localStorage.getItem('counter')
-        if (LScounter) {
-            setCounter(+LScounter)
-        }
-    }, [])
 
     return (
-        <div className={'counterAppWrap'}>
-            <DisplayCounter
-                counter={counter}
-                incrementCounter={incrementCounter}
-                resetCounter={resetCounter}
-                stopCount={counter >= settings.MAX_VALUE}/>
-            <Settings setSettings={setSettings}
-                      error={error}
-                      saveSettings={saveSettings}
-                      settings={settings}/>
+        <div className='counter'>
+            <p className={props.counterValue === props.maxValue ? 'counterValueMax' : 'counterValue'}>
+                {props.error
+                    ? props.errorMessage
+                    : props.disableBtnInc
+                        ? props.message
+                        : props.counterValue}
+            </p>
+            <div className='app__btn-box'>
+
+                {/*<Button title='inc' />*/}
+                {/*<Button title='reset' />*/}
+
+                <button className={'button'} onClick={increment}
+                        disabled={props.counterValue < props.maxValue || props.error ? props.disableBtnInc : !props.disableBtnInc}>INC
+                </button>
+                <button className={'button'} onClick={reset} disabled={props.disableBtnReset}>RESET</button>
+            </div>
         </div>
     );
-};
+}
 
 export default Counter;
