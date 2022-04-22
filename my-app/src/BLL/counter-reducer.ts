@@ -1,3 +1,15 @@
+import {
+    ActionsType,
+    INCREMENT,
+    RESET,
+    SET_DISABLE_INC_RESET, SET_ERROR, SET_ERROR_MESSAGE,
+    SET_MAX_VALUE, SET_MESSAGE,
+    SET_MIN_VALUE,
+    SET_MIN_VALUE_TO_COUNTER
+} from "./ActionsCreators";
+
+
+
 const initialState = {
     counterValue: 0,
     minValue: 0,
@@ -13,38 +25,65 @@ const initialState = {
 type InitialStateType = typeof initialState
 
 
-export const counterReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
+export const counterReducer = (state: InitialStateType= initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
         case INCREMENT:
             return {
                 ...state,
-                counterValue: action.counterValue +1
+                counterValue: state.counterValue + 1
             }
         case RESET:
             return {
                 ...state,
-                counterValue: action.minValue
+                counterValue: state.minValue
             }
-        case "SET-COUNT-FROM-LS":
+        case SET_MIN_VALUE:
             return {
-                ...state, value: action.value
+                ...state,
+                minValue: action.valueMin,
+                disableBtnSet: action.disableBtnSet,
+                disableBtnInc: action.disableBtnInc,
+                disableBtnReset: action.disableBtnReset
+            }
+        case SET_MAX_VALUE:
+            return {
+                ...state,
+                maxValue: action.valueMax,
+                disableBtnSet: action.disableBtnSet,
+                disableBtnInc: action.disableBtnInc,
+                disableBtnReset: action.disableBtnReset
+            }
+        case SET_MIN_VALUE_TO_COUNTER:
+            return {
+                ...state,
+                counterValue: action.valueMin,
+                disableBtnSet: action.disableBtnSet,
+                disableBtnInc: action.disableBtnInc,
+                disableBtnReset: action.disableBtnReset
+            }
+        case SET_DISABLE_INC_RESET:
+            return {
+                ...state,
+                disableBtnInc: !action.disableBtnInc,
+                disableBtnReset: !action.disableBtnReset
+            }
+        case SET_MESSAGE:
+            return {
+                ...state,
+                message: action.message
+            }
+        case SET_ERROR_MESSAGE    :
+            return {
+                ...state,
+                errorMessage: action.errorMessage,
+            }
+        case SET_ERROR:
+            return {
+                ...state,
+                error: action.error,
+                disableBtnSet: action.disableBtnSet,
             }
         default:
             return state
     }
 }
-
-
-export const incValueAC = () => ({type: 'INC-COUNT'} as const)
-export const setValueAC = (value: number) => ({
-    type: 'SET-COUNT-FROM-LS',
-    value
-} as const)
-
-
-
-
-
-export type IncrementCounterValueType = ReturnType<typeof incValueAC>
-export type SetCounterValueType = ReturnType<typeof setValueAC>
-export type ActionsType = IncrementCounterValueType | SetCounterValueType
