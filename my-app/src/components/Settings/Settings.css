@@ -1,0 +1,66 @@
+.settings {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    justify-content: space-evenly;
+}
+
+.settings__min {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30px;
+}
+
+.settings__max {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30px;
+}
+
+.value__min,
+.value__max {
+    outline: none;
+    border: none;
+    width: 100px;
+    text-align: center;
+    background-color: #282c34;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.value__min:hover,
+.value__max:hover {
+    border: 1px solid white;
+}
+
+.value__min--error {
+    color: crimson;
+    text-align: center;
+    border: 1px solid crimson;
+    outline: 1px solid crimson;
+    width: 100px;
+    background-color: #282c34;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.value__max--error {
+    color: crimson;
+    border: 1px solid crimson;
+    outline: 1px solid crimson;
+    width: 100px;
+    text-align: center;
+    background-color: #282c34;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.settings__min-text {
+    font-weight: bold;
+}
